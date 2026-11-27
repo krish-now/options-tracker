@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ORB</title>
+<style>
+:root{
+  --paper:#f3f2ed; --card:#faf9f6; --ink:#23262a; --muted:#71757c;
+  --line:#e2e0d9; --pos:#1d7a4d; --neg:#b3261e; --accent:#2f5d8a;
+  --chip:#eceae3; --hl-near:#fff1a8; --hl-at:#f7a65f;
+}
+:root:not([data-theme="light"]){ }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16181b; --card:#1d2024; --ink:#e8e6e1; --muted:#9aa0a8;
+    --line:#2c3037; --pos:#4ac98a; --neg:#f2635a; --accent:#7fb0e0; --chip:#262a30;
+    --hl-near:#4a4214; --hl-at:#7a3a10;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16181b; --card:#1d2024; --ink:#e8e6e1; --muted:#9aa0a8;
+  --line:#2c3037; --pos:#4ac98a; --neg:#f2635a; --accent:#7fb0e0; --chip:#262a30;
+    --hl-near:#4a4214; --hl-at:#7a3a10;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);
+  font:14px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--accent)}
+.topbar{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;
+  padding:14px 16px;border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.topbar .spx{color:var(--ink);font-weight:600}
+.topbar .source{font-style:italic}
+.wrap{max-width:1080px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:15px;font-weight:600;color:var(--muted);letter-spacing:.02em;margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;
+  padding:20px;margin-bottom:18px}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;
+  color:var(--muted);font-weight:600;padding:0 10px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+.sub{color:var(--muted);font-size:12px}
+.pos{color:var(--pos)} .neg{color:var(--neg)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:18px 0}
+.stat .k{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.stat .v{font-size:17px;margin-top:3px}
+.chip{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--chip);
+  font-size:11px;color:var(--muted)}
+.status-open{color:var(--pos);font-weight:600}
+.status-planned{color:var(--accent);font-weight:600}
+.status-closed{color:var(--muted)}
+.chip.risk{background:var(--neg);color:#fff;font-weight:600}
+.chip.earn{background:#c2410c;color:#fff;font-weight:600}
+tr.hl-near td{background:var(--hl-near)}
+tr.hl-at td{background:var(--hl-at)}
+.swatch{display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:-1px;
+  border:1px solid var(--line)}
+.ticket{background:var(--chip);border:1px dashed var(--line);border-radius:8px;
+  padding:12px 14px;margin:12px 0;font-family:ui-monospace,Menlo,Consolas,monospace;
+  font-size:12.5px;white-space:pre-wrap;word-break:break-word}
+.action-title{font-size:17px;margin:4px 0 6px}
+.right{text-align:right}
+.legs td:first-child{width:52px;color:var(--muted);font-size:12px}
+svg{display:block;width:100%;height:auto}
+@media (max-width:760px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .wrap{padding:16px}
+  table{font-size:13px}
+}
+</style>
+</head>
+<body>
+<div class="topbar"><a href="../index.html">&larr; All strategies</a><span>Eastern Time Nov 27 &middot; 04:15:15 PM</span></div>
+<div class="wrap"><style>
+.orb-scroll{overflow-x:auto}
+.orb-scroll table{min-width:640px}
+</style><h1>ORB</h1><div class='card'><div class='sub'>SPX&#x27;s opening range, 60-minute and 30-minute: each range is traded on its own, with its own trade a day and its own P/L. Until 12:00 ET, on a day the market closes at 16:00 and whose range is at least 0.2% of the open: once SPX trades above the range (and never below it), sell a 5-wide put spread with its short at the first strike under the range low; once it trades below the range (and never above it), a call spread over the range high. 5 contracts at the mid less $0.05, only if that is at least $0.50 ($0.60 on the 30-minute range). One trade a day per range, held to expiry and settled against SPX&#x27;s close. Once open, a 5-minute close through the long strike sells the same-width spread on the other side, short on the same strike - an iron fly - if that takes at least $0.80. Paper; no commission.</div></div><h1>ORB 60m</h1><div class='card'><div class='sub'>09:30&ndash;10:30 ET RANGE &middot; TOTALS</div><div class='stats'><div class='stat'><div class='k'>Realized P/L</div><div class='v '><span class='pos'>+$1,525.00</span></div></div><div class='stat'><div class='k'>Trades</div><div class='v '>5 closed &middot; 100% won</div></div><div class='stat'><div class='k'>Open</div><div class='v '>0</div></div><div class='stat'><div class='k'>Max drawdown (realized)</div><div class='v '>$0.00</div></div></div></div><div class='card orb-scroll'><div class='sub'>DAYS</div><table><thead><tr><th>Day</th><th>Opening range</th><th>Trade</th><th>Credit</th><th>SPX close</th><th>P/L</th></tr></thead><tbody><tr><td>Fri 27 Nov</td><td class='mono'><span class='sub'>&mdash;</span></td><td><span class='sub'>the market closes early today</span></td><td></td><td></td><td></td></tr><tr><td>Wed 25 Nov</td><td class='mono'>6,970.11 &ndash; 7,063.54<br><span class='sub'>93.43 (1.32%)</span></td><td><span class='sub'>no breakout by 12:00 ET</span></td><td></td><td></td><td></td></tr><tr><td>Tue 24 Nov</td><td class='mono'>7,138.93 &ndash; 7,223.95<br><span class='sub'>85.02 (1.19%)</span></td><td><span class='sub'>no breakout by 12:00 ET</span></td><td></td><td></td><td></td></tr><tr><td>Mon 23 Nov</td><td class='mono'>7,152.66 &ndash; 7,288.33<br><span class='sub'>135.67 (1.88%)</span></td><td>7150/7145 PUT spread<br><span class='sub'>5 contracts, sold 10:56 at SPX 7,245.37</span></td><td>0.50<br><span class='sub'>mid 0.55</span></td><td>7,237.17<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$250.00</span></td></tr><tr><td>Fri 20 Nov</td><td class='mono'>7,103.80 &ndash; 7,198.67<br><span class='sub'>94.87 (1.33%)</span></td><td>7200/7205 CALL spread<br><span class='sub'>5 contracts, sold 10:33 at SPX 7,107.17</span></td><td>0.65<br><span class='sub'>mid 0.70</span></td><td>6,910.39<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$325.00</span></td></tr><tr><td>Thu 19 Nov</td><td class='mono'>7,322.09 &ndash; 7,415.64<br><span class='sub'>93.55 (1.27%)</span></td><td><span class='sub'>the 7420/7425 call spread&#x27;s credit 0.00 (mid 0.05) stayed under the 0.50 minimum</span></td><td></td><td></td><td></td></tr><tr><td>Wed 18 Nov</td><td class='mono'>7,303.22 &ndash; 7,367.68<br><span class='sub'>64.46 (0.88%)</span></td><td>7370/7375 CALL spread<br><span class='sub'>5 contracts, sold 10:43 at SPX 7,305.16</span></td><td>0.70<br><span class='sub'>mid 0.75</span></td><td>7,323.63<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$350.00</span></td></tr><tr><td>Tue 17 Nov</td><td class='mono'>7,379.32 &ndash; 7,415.37<br><span class='sub'>36.05 (0.49%)</span></td><td>7420/7425 CALL spread<br><span class='sub'>5 contracts, sold 10:32 at SPX 7,371.38</span></td><td>0.70<br><span class='sub'>mid 0.75</span></td><td>7,340.53<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$350.00</span></td></tr><tr><td>Mon 16 Nov</td><td class='mono'>7,451.80 &ndash; 7,515.60<br><span class='sub'>63.80 (0.85%)</span></td><td><span class='sub'>no breakout by 12:00 ET</span></td><td></td><td></td><td></td></tr><tr><td>Fri 13 Nov</td><td class='mono'>7,499.40 &ndash; 7,621.78<br><span class='sub'>122.38 (1.61%)</span></td><td><span class='sub'>no breakout by 12:00 ET</span></td><td></td><td></td><td></td></tr><tr><td>Thu 12 Nov</td><td class='mono'>7,550.84 &ndash; 7,611.00<br><span class='sub'>60.16 (0.80%)</span></td><td><span class='sub'>the 7550/7545 put spread&#x27;s credit 0.00 (mid 0.05) stayed under the 0.50 minimum</span></td><td></td><td></td><td></td></tr><tr><td>Wed 11 Nov</td><td class='mono'>7,571.88 &ndash; 7,603.52<br><span class='sub'>31.64 (0.42%)</span></td><td><span class='sub'>the 7570/7565 put spread&#x27;s credit 0.05 (mid 0.10) stayed under the 0.50 minimum</span></td><td></td><td></td><td></td></tr><tr><td>Tue 10 Nov</td><td class='mono'>7,490.65 &ndash; 7,543.92<br><span class='sub'>53.27 (0.71%)</span></td><td>7545/7550 CALL spread<br><span class='sub'>5 contracts, sold 10:58 at SPX 7,497.72</span></td><td>0.50<br><span class='sub'>mid 0.55</span></td><td>7,520.93<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$250.00</span></td></tr><tr><td>Mon 9 Nov</td><td class='mono'>7,422.24 &ndash; 7,518.34<br><span class='sub'>96.10 (1.29%)</span></td><td><span class='sub'>the 7420/7415 put spread&#x27;s credit -0.05 (mid 0.00) stayed under the 0.50 minimum</span></td><td></td><td></td><td></td></tr></tbody></table></div><h1>ORB 30m</h1><div class='card'><div class='sub'>09:30&ndash;10:00 ET RANGE &middot; TOTALS</div><div class='stats'><div class='stat'><div class='k'>Realized P/L</div><div class='v '><span class='pos'>+$2,350.00</span></div></div><div class='stat'><div class='k'>Trades</div><div class='v '>8 closed &middot; 88% won</div></div><div class='stat'><div class='k'>Open</div><div class='v '>0</div></div><div class='stat'><div class='k'>Max drawdown (realized)</div><div class='v neg'>-$925.00</div></div></div></div><div class='card orb-scroll'><div class='sub'>DAYS</div><table><thead><tr><th>Day</th><th>Opening range</th><th>Trade</th><th>Credit</th><th>SPX close</th><th>P/L</th></tr></thead><tbody><tr><td>Fri 27 Nov</td><td class='mono'><span class='sub'>&mdash;</span></td><td><span class='sub'>the market closes early today</span></td><td></td><td></td><td></td></tr><tr><td>Wed 25 Nov</td><td class='mono'>6,970.11 &ndash; 7,060.33<br><span class='sub'>90.22 (1.28%)</span></td><td>6970/6965 PUT spread<br><span class='sub'>5 contracts, sold 10:07 at SPX 7,058.36</span></td><td>0.70<br><span class='sub'>mid 0.75</span></td><td>7,182.78<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$350.00</span></td></tr><tr><td>Tue 24 Nov</td><td class='mono'>7,138.93 &ndash; 7,217.76<br><span class='sub'>78.83 (1.10%)</span></td><td>7135/7130 PUT spread<br><span class='sub'>5 contracts, sold 10:00 at SPX 7,214.97</span></td><td>0.65<br><span class='sub'>mid 0.70</span></td><td>7,201.09<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$325.00</span></td></tr><tr><td>Mon 23 Nov</td><td class='mono'>7,152.66 &ndash; 7,260.17<br><span class='sub'>107.51 (1.49%)</span></td><td>7150/7145 PUT spread<br><span class='sub'>5 contracts, sold 11:40 at SPX 7,223.03</span></td><td>0.65<br><span class='sub'>mid 0.70</span></td><td>7,237.17<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$325.00</span></td></tr><tr><td>Fri 20 Nov</td><td class='mono'>7,133.55 &ndash; 7,187.77<br><span class='sub'>54.22 (0.76%)</span></td><td>7125/7130/7135 iron fly<br><span class='sub'>5 contracts, sold 10:00 at SPX 7,196.61</span></td><td>0.95 + 2.20<br><span class='sub'>7130/7125 PUT spread, then 7130/7135 call at 10:25</span></td><td>6,910.39<br><span class='sub'>worth 5.00</span></td><td><span class='neg'>-$925.00</span></td></tr><tr><td>Thu 19 Nov</td><td class='mono'>7,373.11 &ndash; 7,415.64<br><span class='sub'>42.53 (0.58%)</span></td><td>7420/7425 CALL spread<br><span class='sub'>5 contracts, sold 10:11 at SPX 7,376.41</span></td><td>1.25<br><span class='sub'>mid 1.30</span></td><td>7,175.83<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$625.00</span></td></tr><tr><td>Wed 18 Nov</td><td class='mono'>7,303.22 &ndash; 7,367.68<br><span class='sub'>64.46 (0.88%)</span></td><td>7370/7375 CALL spread<br><span class='sub'>5 contracts, sold 10:43 at SPX 7,305.31</span></td><td>0.75<br><span class='sub'>mid 0.80</span></td><td>7,323.63<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$375.00</span></td></tr><tr><td>Tue 17 Nov</td><td class='mono'>7,393.82 &ndash; 7,415.37<br><span class='sub'>21.55 (0.29%)</span></td><td>7420/7425 CALL spread<br><span class='sub'>5 contracts, sold 10:06 at SPX 7,390.87</span></td><td>1.40<br><span class='sub'>mid 1.45</span></td><td>7,340.53<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$700.00</span></td></tr><tr><td>Mon 16 Nov</td><td class='mono'>7,483.78 &ndash; 7,515.60<br><span class='sub'>31.82 (0.42%)</span></td><td>7520/7525 CALL spread<br><span class='sub'>5 contracts, sold 10:00 at SPX 7,474.55</span></td><td>1.15<br><span class='sub'>mid 1.20</span></td><td>7,416.59<br><span class='sub'>worth 0.00</span></td><td><span class='pos'>+$575.00</span></td></tr><tr><td>Fri 13 Nov</td><td class='mono'>7,559.87 &ndash; 7,621.78<br><span class='sub'>61.91 (0.81%)</span></td><td><span class='sub'>the 7625/7630 call spread&#x27;s credit -0.05 (mid 0.00) stayed under the 0.50 minimum</span></td><td></td><td></td><td></td></tr></tbody></table></div><p class='sub' style='margin-top:28px'>A snapshot, not a live view: published Nov 27, 04:15 PM ET and refreshed each trading day at 11:00, 16:05, 16:15 ET. A recommendation is never counted as a position until its fill is confirmed.</p></div>
+</body>
+</html>
